@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Registro Proyecto Mochileros</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="container-fluid">
+        <div class="row">
+            <div class="col" style="border: 2px solid red;">ESTO ES EL CABEZERO</div>
+        </div>
+    </header>
+    <div class="container mt-5">
+        <h1 class="text-primary">Registrate en Mochileros y empieza tu proxima aventura!</h1>
+
+        <div class="container d-flex justify-content-center">
+        <form action="#" method="post" class="p-4 border rounded w-100" style="max-width: 600px;">
+
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" name="apellidos" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="contraseña" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="contraseña" name="contraseña" required>    
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmarContraseña" class="form-label">Confirmar contraseña</label>
+                <input type="password" class="form-control" id="confirmarContraseña" name="confirmarContraseña" required>
+            </div>
+
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" name="condicionesUso" id="condicionesUso" required>
+                <label class="form-check-label" for="condicionesUso">Acepto <a href="/condiciones-de-uso.html" target="_blank">condiciones de uso</a></label>
+            </div>
+
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" name="noticias" id="noticias">
+                <label class="form-check-label" for="noticias">Quiero recibir emails con las ultimas noticias</label>
+            </div>
+
+            <div class="text-center mb-3">
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+            </div>
+
+            <div class="text-center mt-3">
+                <p>¿Ya estás registrado?</p>
+                <a href="/identificarse.html" class="btn btn-secondary">Identificarse</a>
+            </div>
+        </form>
+        </div>
+    </div>
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
