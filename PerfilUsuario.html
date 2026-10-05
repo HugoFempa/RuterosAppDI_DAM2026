@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="container-fluid">
+        <div class="row">
+            <div class="col" style="border: 2px solid red;">ESTO ES LA CABECERA</div>
+        </div>
+    </header>
+
+        <main class="container mt-5">
+            <div class="row">
+                
+                <!-- Parte izquierda: foto y menú -->
+                <div class="col-12 col-md-3 text-center">
+                    <img src="IMGS//monte_ruta_1.webp"
+                         alt="Foto de perfil del usuario"
+                         class="rounded-circle img-fluid mb-3"
+                         style="width: 180px; height: 180px; object-fit: cover;">
+
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="#">Perfil</a>
+                        <a class="nav-link" href="#">Configurar Perfil</a>
+                        <a class="nav-link" href="CrearRuta.html">Crear una ruta</a>
+                        <a class="nav-link" href="#">Mensajes</a>
+                        <a class="nav-link" href="#">Cerrar sesión</a>
+                    </nav>
+                </div>
+
+                <!-- Parte derecha: información del usuario -->
+                <div class="col-12 col-md-9">
+
+                    <!-- Aquí iría la información del usuario -->
+                    <section>
+                        <h2>Nombre de Usuario</h2>
+                        <p class="text-secondary">@nombreusuario</p>
+
+                        <p>
+                            Me gusta descubrir nuevas rutas y conocer gente
+                            mientras disfruto de la naturaleza.
+                        </p>
+                    
+                        <p>
+                            <strong>Localidad:</strong> Alicante
+                        </p>
+                    
+                        <p>
+                            <strong>Rutas creadas:</strong> 3
+                        </p>
+                    </section>
+                    
+                    <hr>
+
+                    <!-- Rutas Creadas por el usuario -->
+                    <section>
+                        <h3>Mis rutas</h3>
+                            <div class="row g-4">
+                    
+                                <!-- Primera ruta -->
+                                <div class="col-12 col-lg-6">
+                                    <div class="card h-100">
+                                        <img src="IMGS/monte_ruta_1.webp"
+                                             class="card-img-top"
+                                             alt="Paisaje de la ruta Monte Tosal">
+                                    
+                                        <div class="card-body">
+                                            <h3 class="card-title h5">Ruta Monte Tosal</h3>
+                                        
+                                            <p class="card-text">
+                                                Ruta de dificultad media con unas vistas
+                                                muy bonitas de la montaña.
+                                            </p>
+                                        
+                                            <a href="#" class="btn btn-primary">
+                                                Ver ruta
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Segunda ruta -->
+                                <div class="col-12 col-lg-6">
+                                    <div class="card h-100">
+                                        <img src="IMGS/monte_ruta_1.webp"
+                                             class="card-img-top"
+                                             alt="Paisaje de la ruta Monte Negro">
+                                    
+                                        <div class="card-body">
+                                            <h3 class="card-title h5">Ruta Monte Negro</h3>
+                                        
+                                            <p class="card-text">
+                                                Una ruta ideal para pasar el día
+                                                disfrutando del entorno natural.
+                                            </p>
+                                        
+                                            <a href="#" class="btn btn-primary">
+                                                Ver ruta
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                    </section>
+                </div>
+            </div>
+    <footer>
+        <div class="row">
+            <div class="col" style="border: 2px solid red;">ESTO ES EL FOOTER</div>
+        </div>
+    </footer>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
