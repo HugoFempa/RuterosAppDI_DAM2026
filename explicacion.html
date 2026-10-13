@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prueba</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<style>
+.container {
+    border:2px solid black;
+    min-height: 250px;
+}
+.row {
+    border: 2px solid red;
+    min-height: 250px;
+
+}
+.micol {
+    border: 2px solid green;
+    min-height: 250px;
+
+}
+#destacados {background-color: rgb(215, 215, 227);}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col d-flex flex-column m-4 micol">
+            <div class="d-flex justify-content-between">
+                <img src="https://i.pravatar.cc/300" alt="">
+                <h1>RUTEROS</h1>
+
+            </div>
+            <div>FraseMotivadora</div>
+        </div>
+        <div class="col m-4 micol">
+            <button class="btn btn-primary float-end">Inicio</button>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col micol">
+
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Rutas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Comunidad</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Sobre Nosotros</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" aria-disabled="true">Ayuda</a>
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" id="destacados">
+    <div class="row">
+        <div class="col">
+            <h2>Destacados</h2>
+
+            <div id="carruselDestacados" class="carousel slide">
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-3">
+                            <div class="col-6 col-lg-3 border">1</div>
+                            <div class="col-6 col-lg-3 border">2</div>
+                            <div class="col-6 col-lg-3 border">3</div>
+                            <div class="col-6 col-lg-3 border">4</div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row g-3">
+                            <div class="col-6 col-lg-3 border">5</div>
+                            <div class="col-6 col-lg-3 border">6</div>
+                            <div class="col-6 col-lg-3 border">7</div>
+                            <div class="col-6 col-lg-3 border">8</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carruselDestacados" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carruselDestacados" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container"></div>
+<div class="container"></div>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+</html>
