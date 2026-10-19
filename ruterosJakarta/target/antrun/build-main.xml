@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="maven-antrun-" default="main">
+  <target name="main">
+    <copy file="C:\Users\USUARIO\Desktop\DDIntefaces\DAM2\proyecto\ruterosJakarta\target/ruteros.war" todir="C:/apache-tomcat-11.0.27/webapps" overwrite="true" />
+  </target>
+</project>

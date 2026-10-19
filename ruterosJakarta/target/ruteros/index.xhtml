@@ -1,0 +1,78 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="jakarta.faces.html"
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:p="primefaces"
+    template="/WEB-INF/templates/template.xhtml">
+
+    <ui:define name="title">
+        Inicio
+    </ui:define>
+    
+
+    <ui:define name="content">
+
+        <h1>Jakarta Faces + PrimeFaces</h1>
+
+    <h:form>
+
+    <p:knob value="#{holaBean.value}">
+        <p:ajax listener="#{holaBean.onChange}"/>
+    </p:knob>
+
+        <p:panel header="Prueba PrimeFaces">
+
+            <p:outputLabel for="nombre"
+                           value="Nombre:" />
+
+            <h:outputText value="#{holaBean.saludo}" />
+
+            <p:inputText id="nombre"
+                         value="#{holaBean.nombre}" />
+
+            <p:commandButton value="Saludar"
+                             action="#{holaBean.saludar}"
+                             update="mensaje" />
+
+            <h:outputText id="mensaje"
+                          value="#{holaBean.mensaje}" />
+
+        </p:panel>
+
+    </h:form>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <h2>Página principal</h2>
+
+                <p:panel header="Bienvenido">
+                    Esta es la página principal.
+                </p:panel>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Información
+                        </h5>
+
+                        <p class="card-text">
+                            Ejemplo de una tarjeta Bootstrap.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    </ui:define>
+
+</ui:composition>
