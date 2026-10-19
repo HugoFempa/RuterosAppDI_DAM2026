@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prueba</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<style>
+    :root{
+    --verde-principal:#2E7D32;
+    --verde-secundario:#4CAF50;
+    --verde-claro:#A5D6A7;
+    --gris-fondo:#daffc4;
+    --texto:#333333;
+    }
+    
+    body{
+    background-color:var(--gris-fondo);
+    color:var(--texto);
+    }  
+
+    .logo-titulo{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+    }
+
+    h1, h2{
+        font-weight: bold;
+    }
+    
+    .card{
+        box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .card-img-top{
+        height:180px;
+        object-fit:cover;
+    }
+
+    .cabecera{
+    background-color: var(--verde-principal);
+    color: white;
+    border-radius: 15px;
+    padding: 0px;
+    
+    }
+
+    .navbar-personalizado{
+        background-color: var(--verde-secundario);
+        border-radius: 10px;
+    }
+    
+    .nav-link{
+    font-weight: 600;
+    }
+    
+    .card{
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border:none;
+    }
+
+    .card-img-top{
+    height:180px;
+    object-fit:cover;
+    }
+
+</style>
+
+
+
+
+</head>
+
+<body>
+    <div class="container cabecera">
+        <div class="row">
+            <div class="col d-flex flex-column m-4 micol">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div class="d-flex align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1090/1090663.png"
+                            width="90" alt="">
+                        <h1 class="ms-3 logo-titulo">RUTEROS</h1>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Nombre
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Mi perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Mis rutas</a></li>
+                            <li><a class="dropdown-item" href="#">Configuración</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="mt-4 text-center">
+                    <h2>Tu próximo camino no está en el mapa, está en tus pies.</h2>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container navbar-personalizado ">
+
+            <a class="navbar-brand" href="#"></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100 justify-content-around">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Explorar rutas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Favoritos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Comunidad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">¿Quiénes somos?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ayuda</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container my-5" id="destacados">
+        <div class="row">
+            <div class="col">
+                <h2 class="mb-4">Rutas destacadas</h2>
+
+                <!-- INICIO DEL CARRUSEL -->
+                <div id="carruselDestacados" class="carousel slide">
+
+                    <div class="carousel-inner">
+
+                        <!-- DIAPOSITIVA 1 -->
+                        <div class="carousel-item active">
+                            <div class="row g-3">
+
+                                <div class="col-6 col-lg-3">
+                                    <div class="card h-100">
+                                        <img src="https://picsum.photos/300/200?random=1" class="card-img-top" alt="Sierra de Aitana">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Sierra de Aitana</h5>
+                                            <p class="card-text">Ruta de dificultad media con espectaculares vistas panorámicas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-lg-3">
+                                    <div class="card h-100">
+                                        <img src="https://picsum.photos/300/200?random=2" class="card-img-top" alt="Fontcalent">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Fontcalent</h5>
+                                            <p class="card-text">Recorrido sencillo ideal para principiantes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-lg-3">
+                                    <div class="card h-100">
+                                        <img src="https://picsum.photos/300/200?random=3" class="card-img-top" alt="Puig Campana">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Puig Campana</h5>
+                                            <p class="card-text">Ascensión exigente con panorámicas espectaculares.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-lg-3">
+                                    <div class="card h-100">
+                                        <img src="https://picsum.photos/300/200?random=4" class="card-img-top" alt="Ruta del Maigmó">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Ruta del Maigmó</h5>
+                                            <p class="card-text">Sendero forestal con zonas de sombra.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- DIAPOSITIVA 2 -->
+                        <div class="carousel-item">
+                            <div class="row g-3">
+
+                                <div class="col-6 col-lg-3">
+                                    <div class="card h-100">
+                                        <img src="https://picsum.photos/300/200?random=5" class="card-img-top" alt="Ruta del Maigmó">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Ruta del Maigmó</h5>
+                                            <p class="card-text">Ruta de dificultad media con espectaculares vistas panorámicas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-lg-3">
+                                    <div class="card h-100">
+                                        <img src="https://picsum.photos/300/200?random=6" class="card-img-top" alt="Ruta del Maigmó">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Ruta del Maigmó</h5>
+                                            <p class="card-text">Ruta de dificultad media con espectaculares vistas panorámicas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-lg-3">
+                                    <div class="card h-100">
+                                        <img src="https://picsum.photos/300/200?random=7" class="card-img-top" alt="Ruta del Maigmó">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Ruta del Maigmó</h5>
+                                            <p class="card-text">Ruta de dificultad media con espectaculares vistas panorámicas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 col-lg-3">
+                                    <div class="card h-100">
+                                        <img src="https://picsum.photos/300/200?random=8" class="card-img-top" alt="Ruta del Maigmó">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Ruta del Maigmó</h5>
+                                            <p class="card-text">Ruta de dificultad media con espectaculares vistas panorámicas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- CONTROLES DENTRO DEL CARRUSEL -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carruselDestacados" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carruselDestacados" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+
+                </div>
+                <!-- FIN DEL CARRUSEL -->
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+
+        <h2 class="text-center mb-4">
+            Consejos para tu próxima aventura
+        </h2>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+
+                        <h4 class="card-title">
+                            Antes de salir
+                        </h4>
+
+                        <ul>
+                            <li>Revisa la previsión meteorológica.</li>
+                            <li>Lleva suficiente agua.</li>
+                            <li>Carga el móvil antes de salir.</li>
+                            <li>Informa de tu recorrido.</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body">
+
+                        <h4 class="card-title">
+                            Durante la ruta
+                        </h4>
+
+                        <ul>
+                            <li>Sigue las señales del sendero.</li>
+                            <li>Respeta el entorno natural.</li>
+                            <li>No abandones residuos.</li>
+                            <li>Mantente en los caminos marcados.</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container my-5">
+
+        <hr>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <h4>RUTEROS</h4>
+                <p>Explora nuevas rutas y comparte aventuras.</p>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Enlaces</h5>
+                <ul>
+                    <li>Explorar rutas</li>
+                    <li>Comunidad</li>
+                    <li>Eventos</li>
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Contacto</h5>
+                <p>ruteros@email.com</p>
+                <p>Alicante, España</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="text-center">
+            © 2026 RUTEROS
+        </p>
+
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+
+
+</html>
