@@ -5,13 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperacion</title>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 </head>
+
+<style>
+    :root{
+    --verde-principal:#2E7D32;
+    --verde-secundario:#4CAF50;
+    --verde-claro:#A5D6A7;
+    --gris-fondo:#daffc4;
+    --texto:#333333;
+    }
+    
+    body{
+    background-color:var(--gris-fondo);
+    color:var(--texto);
+    }  
+
+    .logo-titulo{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+    }
+
+    h1, h2{
+        font-weight: bold;
+    }
+    
+    .card{
+        box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .card-img-top{
+        height:180px;
+        object-fit:cover;
+    }
+
+    .cabecera{
+    background-color: var(--verde-principal);
+    color: white;
+    border-radius: 15px;
+    padding: 0px;
+    
+    }
+
+    .navbar-personalizado{
+        background-color: var(--verde-secundario);
+        border-radius: 10px;
+    }
+    
+    .nav-link{
+    font-weight: 600;
+    }
+    
+    .card{
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border:none;
+    }
+
+    .card-img-top{
+    height:180px;
+    object-fit:cover;
+    }
+
+</style>
+
 <body>
-    <header class="container-fluid">
+    <header class="container cabecera">
         <div class="row">
-            <div class="col" style="border: 2px solid red;">ESTO ES LA CABECERA</div>
+            <div class="col d-flex flex-column m-4 micol">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div class="d-flex align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1090/1090663.png"
+                            width="90" alt="">
+                        <h1 class="ms-3 logo-titulo">RUTEROS</h1>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Nombre
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Mi perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Mis rutas</a></li>
+                            <li><a class="dropdown-item" href="#">Configuración</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="mt-4 text-center">
+                    <h2>Tu próximo camino no está en el mapa, está en tus pies.</h2>
+                </div>
+
+            </div>
         </div>
     </header>
+
     <div class="container-fluid">
         <h1 class="text-primary text-center">Recupera tu contraseña</h1>
         <div class="row justify-content-center mt-4">
@@ -35,10 +136,40 @@
             </div>
         </div>
     </div>
-    <footer>
+        <footer class="container my-5">
+
+        <hr>
+
         <div class="row">
-            <div class="col" style="border: 2px solid red;">ESTO ES EL FOOTER</div>
+
+            <div class="col-md-4">
+                <h4>RUTEROS</h4>
+                <p>Explora nuevas rutas y comparte aventuras.</p>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Enlaces</h5>
+                <ul>
+                    <li>Explorar rutas</li>
+                    <li>Comunidad</li>
+                    <li>Eventos</li>
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Contacto</h5>
+                <p>ruteros@email.com</p>
+                <p>Alicante, España</p>
+            </div>
+
         </div>
+
+        <hr>
+
+        <p class="text-center">
+            © 2026 RUTEROS
+        </p>
+
     </footer>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
