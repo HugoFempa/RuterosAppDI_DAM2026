@@ -1,0 +1,57 @@
+:root{
+    --verde-principal:#2E7D32;
+    --verde-secundario:#4CAF50;
+    --verde-claro:#A5D6A7;
+    --gris-fondo:#daffc4;
+    --texto:#333333;
+}
+
+html body{
+    background-color:var(--gris-fondo);
+    color:var(--texto);
+}
+
+.logo-titulo{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+body h1, body h2{
+    font-weight: bold;
+}
+
+.card{
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card-img-top{
+    height:180px;
+    object-fit:cover;
+}
+
+body .cabecera{
+    background-color: var(--verde-principal);
+    color: white;
+    border-radius: 15px;
+    padding: 0px;
+}
+
+.navbar-personalizado{
+    background-color: var(--verde-secundario);
+    border-radius: 10px;
+}
+
+body .nav-link{
+    font-weight: 600;
+}
+
+body .card{
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border:none;
+}
+
+body .card-img-top{
+    height:180px;
+    object-fit:cover;
+}

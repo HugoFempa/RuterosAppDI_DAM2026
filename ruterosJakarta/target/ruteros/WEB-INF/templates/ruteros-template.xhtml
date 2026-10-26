@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets">
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title><ui:insert name="title">Prueba</ui:insert></title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+
+    <h:outputStylesheet library="css" name="ruteros.css"/>
+</h:head>
+
+<h:body>
+    <div class="container cabecera">
+        <div class="row">
+            <div class="col d-flex flex-column m-4 micol">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div class="d-flex align-items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1090/1090663.png"
+                             width="90" alt=""/>
+                        <h1 class="ms-3 logo-titulo">RUTEROS</h1>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                            Nombre
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Mi perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Mis rutas</a></li>
+                            <li><a class="dropdown-item" href="#">Configuración</a></li>
+                            <li>
+                                <hr class="dropdown-divider"/>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="mt-4 text-center">
+                    <h2>Tu próximo camino no está en el mapa, está en tus pies.</h2>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container navbar-personalizado ">
+
+            <a class="navbar-brand" href="#"></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100 justify-content-around">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Explorar rutas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Favoritos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Comunidad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">¿Quiénes somos?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ayuda</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <ui:insert name="content"/>
+
+    <footer class="container my-5">
+
+        <hr/>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <h4>RUTEROS</h4>
+                <p>Explora nuevas rutas y comparte aventuras.</p>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Enlaces</h5>
+                <ul>
+                    <li>Explorar rutas</li>
+                    <li>Comunidad</li>
+                    <li>Eventos</li>
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <h5>Contacto</h5>
+                <p>ruteros@email.com</p>
+                <p>Alicante, España</p>
+            </div>
+
+        </div>
+
+        <hr/>
+
+        <p class="text-center">
+            © 2026 RUTEROS
+        </p>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</h:body>
+
+</html>
