@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="primefaces">
+
+<h:head>
+    <title>
+        <ui:insert name="title">Mi aplicación</ui:insert>
+    </title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+
+
+</h:head>
+
+<h:body>
+    
+    <p:growl id="mensajes" showDetail="true" life="60000" />
+
+    <!-- HEADER -->
+    <header>
+        <h1>Mi aplicación Jakarta</h1>
+
+        <p:menubar>
+            <p:menuitem value="Inicio"
+                        outcome="/index"
+                        icon="pi pi-home"/>
+
+            <p:menuitem value="Usuarios"
+                        outcome="/usuarios"
+                        icon="pi pi-users"/>
+        </p:menubar>
+    </header>
+
+
+    <!-- CONTENIDO DE CADA PÁGINA -->
+    <main>
+        <ui:insert name="content">
+            Contenido
+        </ui:insert>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <hr/>
+        <p>
+            Aplicación de pruebas - FEMPA
+        </p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</h:body>
+
+</html>

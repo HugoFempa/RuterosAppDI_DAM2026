@@ -32,21 +32,7 @@
                         <h1 class="ms-3 logo-titulo">RUTEROS</h1>
                     </div>
 
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                            Nombre
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Mi perfil</a></li>
-                            <li><a class="dropdown-item" href="#">Mis rutas</a></li>
-                            <li><a class="dropdown-item" href="#">Configuración</a></li>
-                            <li>
-                                <hr class="dropdown-divider"/>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
-                        </ul>
-                    </div>
+                    <a class="btn btn-light" href="login.xhtml">Iniciar sesión</a>
 
                 </div>
 
@@ -61,17 +47,19 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container navbar-personalizado ">
 
-            <a class="navbar-brand" href="#"></a>
-
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav w-100 justify-content-around">
+                <ul class="navbar-nav w-100 justify-content-around"
+                    style="--bs-nav-link-color: #ffffff; --bs-nav-link-hover-color: #f1f8e9;">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Explorar rutas</a>
+                        <a class="nav-link" href="index.xhtml">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="seccionrutas.xhtml">Explorar rutas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Favoritos</a>

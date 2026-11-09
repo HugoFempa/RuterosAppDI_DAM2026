@@ -2,20 +2,32 @@
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="jakarta.faces.html"
     xmlns:ui="jakarta.faces.facelets"
+    xmlns:f="jakarta.faces.core"
     template="/WEB-INF/templates/ruteros-template.xhtml">
 
-    <ui:define name="title">Prueba</ui:define>
+    <ui:define name="title">RUTEROS · Inicio</ui:define>
 
     <ui:define name="content">
 
+        <!-- HERO BANNER -->
+        <section class="hero text-center p-5 mb-5 bg-dark text-white rounded">
+            <h1 class="display-5 fw-bold">Tu próximo camino no está en el mapa, está en tus pies.</h1>
+            <p class="lead my-3">
+                Descubre rutas, guárdalas en favoritos y comparte tus propias aventuras.
+            </p>
+            <div class="d-flex justify-content-center gap-2">
+                <a href="seccionrutas.xhtml" class="btn btn-light btn-lg">Explorar rutas</a>
+                <a href="seccionrutas.xhtml" class="btn btn-outline-light btn-lg">Crear una ruta</a>
+            </div>
+        </section>
+
+        <!-- CARRUSEL DE RUTAS DESTACADAS -->
         <div class="container my-5" id="destacados">
             <div class="row">
                 <div class="col">
                     <h2 class="mb-4">Rutas destacadas</h2>
 
-                    <!-- INICIO DEL CARRUSEL -->
-                    <div id="carruselDestacados" class="carousel slide">
-
+                    <div id="carruselDestacados" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
 
                             <ui:repeat value="#{rutasBean.slides}" var="slide" varStatus="slideStatus">
@@ -24,19 +36,28 @@
                                     <div class="row g-3">
 
                                         <ui:repeat value="#{slide}" var="ruta">
-                                            <div class="col-6 col-lg-3">
-                                                <div class="card h-100">
+                                            <div class="col-12 col-sm-6 col-lg-3">
+                                                <div class="card h-100 shadow-sm d-flex flex-column">
+                                                    
                                                     <h:graphicImage value="#{ruta.imagen}"
                                                                     styleClass="card-img-top"
                                                                     alt="#{ruta.alt}"/>
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">
-                                                            <h:outputText value="#{ruta.nombre}"/>
-                                                        </h5>
-                                                        <p class="card-text">
-                                                            <h:outputText value="#{ruta.descripcion}"/>
+
+                                                    <div class="card-body d-flex flex-column">
+                                                        <h5 class="card-title">#{ruta.nombre}</h5>
+
+                                                        <p class="card-text small text-muted mb-2">
+                                                            #{ruta.ubicacion} · #{ruta.dificultad}
                                                         </p>
+
+                                                        <p class="card-text">#{ruta.descripcion}</p>
+
+                                                        <a href="seccionrutas.xhtml?id=#{ruta.id}" 
+                                                           class="btn btn-primary btn-sm mt-auto">
+                                                            Ver ruta
+                                                        </a>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </ui:repeat>
@@ -47,7 +68,7 @@
 
                         </div>
 
-                        <!-- CONTROLES DENTRO DEL CARRUSEL -->
+                        <!-- CONTROLES -->
                         <button class="carousel-control-prev" type="button" data-bs-target="#carruselDestacados" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Anterior</span>
@@ -58,34 +79,25 @@
                         </button>
 
                     </div>
-                    <!-- FIN DEL CARRUSEL -->
 
                 </div>
             </div>
         </div>
 
+        <!-- CONSEJOS -->
         <div class="container my-5">
-
-            <h2 class="text-center mb-4">
-                Consejos para tu próxima aventura
-            </h2>
-
+            <h2 class="text-center mb-4">Consejos para tu próxima aventura</h2>
             <div class="row g-4">
                 <ui:repeat value="#{rutasBean.consejos}" var="consejo">
                     <div class="col-md-6">
-                        <div class="card h-100">
+                        <div class="card h-100 shadow-sm">
                             <div class="card-body">
-
-                                <h4 class="card-title">
-                                    <h:outputText value="#{consejo.titulo}"/>
-                                </h4>
-
-                                <ul>
+                                <h4 class="card-title">#{consejo.titulo}</h4>
+                                <ul class="mb-0">
                                     <ui:repeat value="#{consejo.items}" var="item">
-                                        <li><h:outputText value="#{item}"/></li>
+                                        <li>#{item}</li>
                                     </ui:repeat>
                                 </ul>
-
                             </div>
                         </div>
                     </div>

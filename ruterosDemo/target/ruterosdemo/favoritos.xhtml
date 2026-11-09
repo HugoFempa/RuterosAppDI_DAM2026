@@ -1,0 +1,64 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="jakarta.faces.html"
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:f="jakarta.faces.core"
+    xmlns:p="primefaces"
+    template="/WEB-INF/templates/ruteros-template.xhtml">
+
+    <ui:define name="title">RUTEROS · Favoritos</ui:define>
+
+    <ui:define name="content">
+
+        <h1 class="h3 mb-3">Mis favoritos</h1>
+
+        <ui:fragment rendered="#{!loginBean.logueado}">
+            <div class="alert alert-warning">
+                Inicia sesión para ver tus favoritos.
+                <a href="login.xhtml" class="alert-link">Entrar</a>.
+            </div>
+        </ui:fragment>
+
+        <ui:fragment rendered="#{loginBean.logueado}">
+            <h:form id="favoritosForm">
+                <div class="row g-3">
+                    <ui:repeat value="#{rutasBean.favoritos}" var="ruta">
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="card h-100">
+                                <h:graphicImage library="img" name="#{ruta.imagen}"
+                                                styleClass="card-img-top" alt="#{ruta.alt}"/>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">#{ruta.nombre}</h5>
+                                    <p class="card-text small text-muted mb-2">
+                                        #{ruta.ubicacion} · #{ruta.dificultad}
+                                    </p>
+                                    <p class="card-text">#{ruta.descripcion}</p>
+
+                                    <div class="mt-auto d-flex gap-2">
+                                        <h:link outcome="ruta" value="Ver"
+                                                styleClass="btn btn-primary btn-sm">
+                                            <f:param name="id" value="#{ruta.id}"/>
+                                        </h:link>
+
+                                        <p:commandButton value="Quitar"
+                                                         action="#{rutasBean.toggleFavorito(ruta)}"
+                                                         process="@this"
+                                                         update="@form :mensajes"
+                                                         styleClass="btn btn-outline-danger btn-sm"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </div>
+
+                <p class="text-muted mt-3" rendered="#{empty rutasBean.favoritos}">
+                    Todavía no has guardado ninguna ruta.
+                    <a href="rutas.xhtml">Explora las rutas</a>.
+                </p>
+            </h:form>
+        </ui:fragment>
+
+    </ui:define>
+
+</ui:composition>
