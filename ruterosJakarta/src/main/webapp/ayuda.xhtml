@@ -1,0 +1,97 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="jakarta.faces.html"
+    xmlns:ui="jakarta.faces.facelets"
+    template="/WEB-INF/templates/ruteros-template.xhtml">
+
+    <ui:define name="title">RUTEROS · Ayuda</ui:define>
+
+    <ui:define name="content">
+
+        <div class="container my-4">
+            <div class="card p-4 p-md-5 bg-white">
+                
+                <h2 class="fw-bold text-success mb-2">Centro de Ayuda</h2>
+                <p class="text-secondary mb-4">
+                    Resuelve tus dudas principales sobre cómo funciona la plataforma y cómo sacarle el máximo partido a tus salidas.
+                </p>
+
+                <!-- Acordeón de Preguntas Frecuentes (Bootstrap 5) -->
+                <div class="accordion mb-5" id="accordionAyuda">
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                ¿Necesito registrarme para ver las rutas?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionAyuda">
+                            <div class="accordion-body text-secondary">
+                                No es obligatorio para explorar el catálogo general. Sin embargo, al crear tu cuenta gratuita podrás guardar rutas en tu lista de favoritos, valorar recorridos y participar en los eventos del grupo.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                ¿Cómo se clasifican los niveles de dificultad?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionAyuda">
+                            <div class="accordion-body text-secondary">
+                                Utilizamos tres niveles claros: <strong>Fácil</strong> (senderos llanos y distancias cortas, aptos para principiantes), <strong>Moderada</strong> (desnivel medio y duración de 3 a 5 horas) y <strong>Difícil</strong> (tramos técnicos, fuerte desnivel o alta exigencia física).
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                ¿Cómo guardo una ruta en mis favoritos?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionAyuda">
+                            <div class="accordion-body text-secondary">
+                                Una vez hayas iniciado sesión, entra en la ficha de cualquier ruta dentro de la sección <strong>Explorar rutas</strong> y pulsa sobre el botón de guardar en favoritos para tenerla siempre a mano en tu perfil.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                ¿Puedo proponer una ruta nueva para la web?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionAyuda">
+                            <div class="accordion-body text-secondary">
+                                ¡Por supuesto! Si conoces algún sendero interesante por la provincia de Alicante que aún no aparezca en el listado, escríbenos con los datos básicos (distancia, punto de inicio y dificultad) y lo revisaremos para añadirlo.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bloque de contacto directo -->
+                <div class="p-4 bg-light rounded border">
+                    <h5 class="fw-bold text-success mb-2">¿Tienes alguna otra duda?</h5>
+                    <p class="small text-secondary mb-3">
+                        Si has encontrado algún problema en la web o necesitas ayuda con tu cuenta, puedes contactar directamente con nuestro equipo:
+                    </p>
+                    <div class="row g-2 small">
+                        <div class="col-md-6">
+                            <strong>Correo de soporte:</strong> soporte@ruterosalicante.es
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Horario de atención:</strong> Lunes a Viernes, de 9:00 a 18:00
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

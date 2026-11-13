@@ -18,36 +18,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
 
-    <!-- Hoja de estilos local (en /resources/css/ruteros.css) -->
+    <!-- Hoja de estilos del equipo -->
     <h:outputStylesheet library="css" name="ruteros.css"/>
 </h:head>
 
 <h:body>
 
-    <!-- CABECERA PRINCIPAL / TOPBAR -->
-    <header class="container cabecera my-3">
+    <!-- CABECERA SUPERIOR VERDE -->
+    <div class="container cabecera mt-3 p-3">
         <div class="row align-items-center">
             <div class="col d-flex justify-content-between align-items-center">
                 
-                <a href="index.xhtml" class="d-flex align-items-center text-decoration-none text-reset">
+                <!-- Logo y Título -->
+                <a href="index.xhtml" class="d-flex align-items-center text-decoration-none text-white">
                     <img src="https://cdn-icons-png.flaticon.com/512/1090/1090663.png"
                          width="70" alt="Logo Ruteros"/>
                     <h1 class="ms-3 mb-0 logo-titulo fs-2">RUTEROS</h1>
                 </a>
 
+                <!-- Botones de sesión y registro -->
                 <div class="d-flex gap-2">
-                    <a class="btn btn-outline-dark" href="login.xhtml">Iniciar sesión</a>
-                    <a class="btn btn-success" href="usuarios.xhtml">Registro</a>
+                    <a class="btn btn-outline-light" href="login.xhtml">Iniciar sesión</a>
+                    <a class="btn btn-light text-success fw-bold" href="usuarios.xhtml">Registro</a>
                 </div>
 
             </div>
         </div>
-    </header>
+    </div>
 
-    <!-- BARRA DE NAVEGACIÓN -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
-        <div class="container navbar-personalizado">
-
+    <!-- BARRA DE NAVEGACIÓN (Verde secundario, sin bg-dark) -->
+    <div class="container px-0 mt-2">
+        <nav class="navbar navbar-expand-lg navbar-personalizado navbar-dark px-3">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -56,70 +57,70 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav w-100 justify-content-around">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.xhtml">Inicio</a>
+                        <a class="nav-link text-white" href="index.xhtml">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="seccionrutas.xhtml">Explorar rutas</a>
+                        <a class="nav-link text-white" href="seccionrutas.xhtml">Explorar rutas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Favoritos</a>
+                        <a class="nav-link text-white" href="#">Favoritos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Comunidad</a>
+                        <a class="nav-link text-white" href="#">Comunidad</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Eventos</a>
+                        <a class="nav-link text-white" href="#">Eventos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">¿Quiénes somos?</a>
+                        <a class="nav-link text-white" href="quienes-somos.xhtml">¿Quiénes somos?</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Ayuda</a>
+                        <a class="nav-link text-white" href="ayuda.xhtml">Ayuda</a>
                     </li>
                 </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 
-    <!-- CONTENIDO DINÁMICO DE CADA PÁGINA (index, login, rutas, etc.) -->
-    <main class="py-4">
+    <!-- CONTENIDO ESPECÍFICO DE CADA PÁGINA -->
+    <main class="py-3">
         <ui:insert name="content"/>
     </main>
 
-    <!-- PIE DE PÁGINA COMÚN -->
+    <!-- PIE DE PÁGINA -->
     <footer class="container my-5">
         <hr class="mb-4"/>
 
         <div class="row g-4">
             <div class="col-md-4">
                 <h4 class="fw-bold">RUTEROS</h4>
-                <p class="text-muted">Explora nuevas rutas, comparte tus trayectos y conecta con la comunidad senderista.</p>
+                <p>Explora nuevas rutas, comparte tus trayectos y conecta con la comunidad senderista.</p>
             </div>
 
             <div class="col-md-4">
                 <h5>Enlaces rápidos</h5>
                 <ul class="list-unstyled">
-                    <li><a href="seccionrutas.xhtml" class="text-decoration-none text-muted">Explorar rutas</a></li>
-                    <li><a href="#" class="text-decoration-none text-muted">Comunidad</a></li>
-                    <li><a href="#" class="text-decoration-none text-muted">Eventos</a></li>
+                    <li><a href="seccionrutas.xhtml" class="text-decoration-none text-dark">Explorar rutas</a></li>
+                    <li><a href="#" class="text-decoration-none text-dark">Comunidad</a></li>
+                    <li><a href="#" class="text-decoration-none text-dark">Eventos</a></li>
                 </ul>
             </div>
 
             <div class="col-md-4">
                 <h5>Contacto</h5>
-                <p class="mb-1 text-muted">ruteros@email.com</p>
-                <p class="text-muted">Alicante, España</p>
+                <p class="mb-1">ruteros@email.com</p>
+                <p>Alicante, España</p>
             </div>
         </div>
 
         <hr class="my-4"/>
 
-        <p class="text-center text-muted mb-0">
+        <p class="text-center mb-0">
             © 2026 RUTEROS · Todos los derechos reservados.
         </p>
     </footer>
 
-    <!-- Bootstrap 5 JS Bundle (necesario para carrusel y menú responsive) -->
+    <!-- JS de Bootstrap para carrusel y menú hamburguesa -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>

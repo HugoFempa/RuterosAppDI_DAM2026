@@ -1,0 +1,59 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="jakarta.faces.html"
+    xmlns:ui="jakarta.faces.facelets"
+    template="/WEB-INF/templates/ruteros-template.xhtml">
+
+    <ui:define name="title">RUTEROS · ¿Quiénes somos?</ui:define>
+
+    <ui:define name="content">
+
+        <div class="container my-4">
+            <div class="card p-4 p-md-5 bg-white">
+                
+                <!-- Título y texto principal -->
+                <h2 class="fw-bold text-success mb-3">Sobre RUTEROS</h2>
+                
+                <p class="fs-5 text-secondary">
+                    Somos un grupo de apasionados por la montaña y el senderismo de Alicante que decidimos crear un punto de encuentro sencillo para compartir nuestras rutas favoritas.
+                </p>
+                
+                <p class="text-secondary mb-4">
+                    Nuestro objetivo es que cualquier persona, tanto si acaba de empezar a caminar por el monte como si busca travesías exigentes, pueda descubrir nuevos caminos cerca de casa, consultar su dificultad real y guardar sus pendientes sin complicaciones.
+                </p>
+
+                <!-- Imagen grande rectangular -->
+                <div class="mt-2 text-center">
+                    <h:graphicImage library="img" name="equipo.jpg"
+                                    styleClass="img-fluid rounded w-100"
+                                    alt="Equipo de Ruteros en la cima de la montaña"/>
+                </div>
+
+                <!-- 3 bloques rápidos de valores (opcional, queda muy equilibrado) -->
+                <div class="row g-3 mt-4 text-center">
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded">
+                            <h5 class="fw-bold text-success">Comunidad local</h5>
+                            <p class="small text-muted mb-0">Rutas reales probadas y valoradas por senderistas de la zona.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded">
+                            <h5 class="fw-bold text-success">Para todos los niveles</h5>
+                            <p class="small text-muted mb-0">Desde paseos familiares junto al mar hasta cimas exigentes.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded">
+                            <h5 class="fw-bold text-success">Respeto al entorno</h5>
+                            <p class="small text-muted mb-0">Fomentamos el senderismo responsable y el cuidado de la naturaleza.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>
