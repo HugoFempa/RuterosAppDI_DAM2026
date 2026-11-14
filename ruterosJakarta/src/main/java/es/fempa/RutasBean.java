@@ -159,6 +159,20 @@ public class RutasBean implements Serializable {
         this.todasLasRutas = todasLasRutas;
     }
 
+    /**
+     * Rutas de ejemplo que se muestran en el perfil.
+     * Cuando exista creación de rutas, aquí se devolverán las del usuario.
+     */
+    public List<Ruta> getMisRutas() {
+        if (todasLasRutas == null || todasLasRutas.isEmpty()) {
+            return new ArrayList<>();
+        }
+
+        return new ArrayList<>(
+                todasLasRutas.subList(0, Math.min(2, todasLasRutas.size()))
+        );
+    }
+
     public List<List<Ruta>> getSlides() {
         return slides;
     }

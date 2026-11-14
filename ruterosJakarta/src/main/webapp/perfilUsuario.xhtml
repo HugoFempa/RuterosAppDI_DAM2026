@@ -1,0 +1,98 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="jakarta.faces.html"
+    xmlns:f="jakarta.faces.core"
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:p="primefaces"
+    xmlns:rut="jakarta.faces.composite/components"
+    template="/WEB-INF/templates/ruteros-template.xhtml">
+
+    <f:metadata>
+        <f:viewAction action="#{loginBean.exigirSesion}"/>
+    </f:metadata>
+
+    <ui:define name="title">RUTEROS · Mi perfil</ui:define>
+
+    <ui:define name="content">
+
+        <div class="container my-4">
+            <div class="row g-4">
+
+                <!-- Datos del usuario -->
+                <div class="col-12 col-md-4">
+                    <div class="card text-center">
+                        <div class="card-body p-4">
+
+                            <img src="https://cdn-icons-png.flaticon.com/512/1090/1090663.png"
+                                 class="rounded-circle img-fluid mb-3"
+                                 style="width: 140px; height: 140px; object-fit: cover;"
+                                 alt="Avatar del usuario"/>
+
+                            <h2 class="h4 mb-1">
+                                #{loginBean.nombre} #{loginBean.apellidos}
+                            </h2>
+
+                            <p class="text-muted mb-3">
+                                @#{loginBean.nombreUsuario}
+                            </p>
+
+                            <p class="mb-3">#{loginBean.bio}</p>
+
+                            <p class="mb-1 text-start">
+                                <strong>Email:</strong> #{loginBean.email}
+                            </p>
+                            <p class="mb-1 text-start">
+                                <strong>Fecha de nacimiento:</strong>
+                                #{loginBean.fechaNacimiento}
+                            </p>
+                            <p class="mb-1 text-start">
+                                <strong>Localidad:</strong> #{loginBean.localidad}
+                            </p>
+                            <p class="mb-3 text-start">
+                                <strong>Rutas creadas:</strong>
+                                #{rutasBean.misRutas.size()}
+                            </p>
+
+                            <div class="d-grid gap-2">
+                                <a href="seccionrutas.xhtml"
+                                   class="btn btn-success btn-sm">
+                                    Explorar rutas
+                                </a>
+
+                                <h:form>
+                                    <p:commandButton value="Cerrar sesión"
+                                                     action="#{loginBean.logout}"
+                                                     ajax="false"
+                                                     styleClass="btn btn-outline-danger btn-sm w-100"/>
+                                </h:form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rutas del usuario -->
+                <div class="col-12 col-md-8">
+                    <h2 class="h4 mb-3">Mis rutas</h2>
+
+                    <div class="row g-3">
+                        <ui:repeat value="#{rutasBean.misRutas}" var="ruta">
+                            <div class="col-12 col-lg-6">
+                                <rut:tarjetaRuta ruta="#{ruta}"/>
+                            </div>
+                        </ui:repeat>
+                    </div>
+
+                    <p class="text-muted mt-3"
+                       rendered="#{empty rutasBean.misRutas}">
+                        Todavía no tienes rutas guardadas.
+                        <a href="seccionrutas.xhtml">Explora las rutas disponibles</a>.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

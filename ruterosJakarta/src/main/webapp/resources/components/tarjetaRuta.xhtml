@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:cc="jakarta.faces.composite">
+
+<h:head>
+    <title>tarjetaRuta</title>
+</h:head>
+
+<h:body>
+
+    <cc:interface>
+        <cc:attribute name="ruta" required="true"/>
+    </cc:interface>
+
+    <cc:implementation>
+        <div class="card h-100">
+            <div class="card-body">
+
+                <h3 class="h5 card-title">
+                    #{cc.attrs.ruta.nombre}
+                </h3>
+
+                <p class="text-muted small mb-2">
+                    #{cc.attrs.ruta.ubicacion} ·
+                    <span class="badge bg-light text-dark border">
+                        #{cc.attrs.ruta.dificultad}
+                    </span>
+                </p>
+
+                <p class="card-text">
+                    #{cc.attrs.ruta.descripcion}
+                </p>
+
+                <a href="seccionrutas.xhtml?id=#{cc.attrs.ruta.id}"
+                   class="btn btn-outline-success btn-sm">
+                    Ver ruta
+                </a>
+
+            </div>
+        </div>
+    </cc:implementation>
+
+</h:body>
+</html>

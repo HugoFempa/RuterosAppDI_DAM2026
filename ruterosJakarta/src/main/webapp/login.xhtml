@@ -1,34 +1,94 @@
 <ui:composition
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="jakarta.faces.html"
+    xmlns:f="jakarta.faces.core"
     xmlns:ui="jakarta.faces.facelets"
     xmlns:p="primefaces"
-    template="/WEB-INF/templates/template.xhtml">
+    template="/WEB-INF/templates/ruteros-template.xhtml">
 
-    <ui:define name="title">
-        Login
-    </ui:define>
-    
+    <f:metadata>
+        <f:viewAction action="#{loginBean.redirigirSiLogueado}"/>
+    </f:metadata>
+
+    <ui:define name="title">RUTEROS · Iniciar sesión</ui:define>
 
     <ui:define name="content">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <h2>Login</h2>
-                    <h:form id="login">                        
-                        <p:panel header="Iniciar sesión">
-                            <p:outputLabel for="username" value="Usuario:" />
-                            <p:inputText id="username" value="#{loginBean.username}" />
-                            <p:outputLabel for="password" value="Contraseña:" />
-                            <p:password id="password" value="#{loginBean.password}" />
-                            <p:commandButton value="Login" action="#{loginBean.login}" update="@form :mensajes" />
-                        </p:panel>
-                    </h:form>
+        <div class="container my-4">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-7 col-lg-5">
+
+                    <div class="card">
+                        <div class="card-body p-4">
+
+                            <h1 class="h3 text-center mb-2">Iniciar sesión</h1>
+
+                            <p class="text-center text-muted small mb-4">
+                                Cuenta de prueba: <strong>user</strong> / <strong>pass</strong>.
+                                También puedes usar la cuenta que hayas creado.
+                            </p>
+
+                            <h:form id="loginForm">
+
+                                <div class="mb-3">
+                                    <p:outputLabel for="username"
+                                                   value="Usuario"
+                                                   styleClass="form-label"/>
+
+                                    <p:inputText id="username"
+                                                 value="#{loginBean.username}"
+                                                 required="true"
+                                                 requiredMessage="El usuario es obligatorio"
+                                                 styleClass="form-control"/>
+
+                                    <p:message for="username"
+                                               styleClass="text-danger small"/>
+                                </div>
+
+                                <div class="mb-3">
+                                    <p:outputLabel for="password"
+                                                   value="Contraseña"
+                                                   styleClass="form-label"/>
+
+                                    <p:password id="password"
+                                                value="#{loginBean.password}"
+                                                required="true"
+                                                requiredMessage="La contraseña es obligatoria"
+                                                feedback="false"
+                                                styleClass="form-control"/>
+
+                                    <p:message for="password"
+                                               styleClass="text-danger small"/>
+                                </div>
+
+                                <div class="d-grid gap-2">
+                                    <p:commandButton value="Identificarse"
+                                                     action="#{loginBean.login}"
+                                                     ajax="false"
+                                                     styleClass="btn btn-success fw-bold"/>
+
+                                    <a href="registro.xhtml"
+                                       class="btn btn-outline-secondary">
+                                        Registrarse
+                                    </a>
+                                </div>
+
+                                <div class="text-center mt-3">
+                                    <a href="recuperacion.xhtml"
+                                       class="link-secondary small">
+                                        ¿Has olvidado tu contraseña?
+                                    </a>
+                                </div>
+
+                            </h:form>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-        
+
     </ui:define>
 
 </ui:composition>

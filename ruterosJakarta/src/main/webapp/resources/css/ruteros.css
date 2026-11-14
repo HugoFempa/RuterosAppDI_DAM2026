@@ -71,14 +71,14 @@ body .btn-primary:active{
     color: #ffffff !important;
 }
 
-/* Botones e interruptores de PrimeFaces con el verde de marca */
+/* Botones e interruptores de PrimeFaces: verde de marca por defecto */
 html body .ui-button.ui-widget,
 html body button.ui-button.ui-state-default,
 html body .ui-toggleswitch.ui-toggleswitch-checked .ui-toggleswitch-slider {
-    background: var(--verde-principal) !important;
-    background-color: var(--verde-principal) !important;
-    border-color: var(--verde-principal) !important;
-    color: #ffffff !important;
+    background: var(--verde-principal);
+    background-color: var(--verde-principal);
+    border-color: var(--verde-principal);
+    color: #ffffff;
 }
 
 html body .ui-button.ui-widget:hover,
@@ -86,8 +86,33 @@ html body .ui-button.ui-widget:focus,
 html body button.ui-button.ui-state-hover,
 html body button.ui-button.ui-state-focus,
 html body .ui-toggleswitch.ui-toggleswitch-checked:hover .ui-toggleswitch-slider {
-    background: var(--verde-secundario) !important;
-    background-color: var(--verde-secundario) !important;
-    border-color: var(--verde-secundario) !important;
-    color: #ffffff !important;
+    background: var(--verde-secundario);
+    background-color: var(--verde-secundario);
+    border-color: var(--verde-secundario);
+    color: #ffffff;
+}
+
+/* ===== PrimeFaces: excepciones de color según la clase explícita del botón ===== */
+.ui-button.btn-success {
+    background-color: var(--verde-principal);
+    border-color: var(--verde-principal);
+    color: #fff;
+}
+
+.ui-button.btn-success:hover {
+    background-color: var(--verde-secundario);
+    border-color: var(--verde-secundario);
+    color: #fff;
+}
+
+.ui-button.btn-outline-danger {
+    background-color: transparent;
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.ui-button.btn-outline-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
 }
