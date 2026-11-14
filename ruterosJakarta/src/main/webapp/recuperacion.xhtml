@@ -1,0 +1,72 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="jakarta.faces.html"
+    xmlns:f="jakarta.faces.core"
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:p="primefaces"
+    template="/WEB-INF/templates/ruteros-template.xhtml">
+
+    <ui:define name="title">RUTEROS · Recuperar contraseña</ui:define>
+
+    <ui:define name="content">
+
+        <div class="container my-4">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-7 col-lg-5">
+
+                    <div class="card">
+                        <div class="card-body p-4">
+
+                            <h1 class="h3 text-center mb-2">
+                                Recuperar contraseña
+                            </h1>
+
+                            <p class="text-center text-muted small mb-4">
+                                Introduce el email de tu cuenta y te enviaremos un enlace
+                                para restablecer la contraseña.
+                            </p>
+
+                            <h:form id="recuperacionForm">
+
+                                <div class="mb-3">
+                                    <p:outputLabel for="email"
+                                                   value="Email"
+                                                   styleClass="form-label"/>
+
+                                    <p:inputText id="email"
+                                                 value="#{recuperacionBean.email}"
+                                                 required="true"
+                                                 requiredMessage="El email es obligatorio"
+                                                 validatorMessage="El email no tiene un formato válido"
+                                                 styleClass="form-control">
+                                        <f:validateRegex pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$"/>
+                                    </p:inputText>
+
+                                    <p:message for="email"
+                                               styleClass="text-danger small"/>
+                                </div>
+
+                                <div class="d-grid gap-2">
+                                    <p:commandButton value="Enviar enlace"
+                                                     action="#{recuperacionBean.enviar}"
+                                                     ajax="false"
+                                                     styleClass="btn btn-success fw-bold"/>
+
+                                    <a href="login.xhtml"
+                                       class="btn btn-outline-secondary">
+                                        Volver al inicio de sesión
+                                    </a>
+                                </div>
+
+                            </h:form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

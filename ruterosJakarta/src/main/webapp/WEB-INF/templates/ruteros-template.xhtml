@@ -2,7 +2,8 @@
 <html lang="es"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html"
-      xmlns:ui="jakarta.faces.facelets">
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="primefaces">
 
 <h:head>
     <meta charset="UTF-8"/>
@@ -24,6 +25,11 @@
 
 <h:body>
 
+    <!-- Mensajes globales (errores de login, avisos, etc.) -->
+    <div class="container mt-2">
+        <p:growl id="mensajes" showDetail="true" life="6000" globalOnly="true"/>
+    </div>
+
     <!-- CABECERA SUPERIOR VERDE -->
     <div class="container cabecera mt-3 p-3">
         <div class="row align-items-center">
@@ -37,9 +43,48 @@
                 </a>
 
                 <!-- Botones de sesión y registro -->
-                <div class="d-flex gap-2">
-                    <a class="btn btn-outline-light" href="login.xhtml">Iniciar sesión</a>
-                    <a class="btn btn-light text-success fw-bold" href="usuarios.xhtml">Registro</a>
+                <div class="d-flex gap-2 align-items-center">
+
+                    <!-- Usuario autenticado -->
+                    <ui:fragment rendered="#{loginBean.logueado}">
+                        <div class="dropdown">
+                            <button class="btn btn-light text-success fw-bold dropdown-toggle"
+                                    type="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                #{loginBean.nombre}
+                            </button>
+
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <h6 class="dropdown-header">@#{loginBean.nombreUsuario}</h6>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="perfilUsuario.xhtml">Mi perfil</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="seccionrutas.xhtml">Explorar rutas</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider"/>
+                                </li>
+                                <li>
+                                    <h:form>
+                                        <h:commandLink value="Cerrar sesión"
+                                                       action="#{loginBean.logout}"
+                                                       styleClass="dropdown-item"/>
+                                    </h:form>
+                                </li>
+                            </ul>
+                        </div>
+                    </ui:fragment>
+
+                    <!-- Usuario anónimo -->
+                    <ui:fragment rendered="#{!loginBean.logueado}">
+                        <a class="btn btn-outline-light" href="login.xhtml">Iniciar sesión</a>
+                        <a class="btn btn-light text-success fw-bold" href="registro.xhtml">Registro</a>
+                    </ui:fragment>
+
                 </div>
 
             </div>

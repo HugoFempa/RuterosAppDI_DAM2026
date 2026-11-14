@@ -55,3 +55,28 @@ body .card-img-top{
     height:180px;
     object-fit:cover;
 }
+
+/* ===== PrimeFaces: mantener la paleta verde de RUTEROS (evita que pinte de azullos botones) ===== */
+.ui-button.btn-success {
+    background-color: var(--verde-principal);
+    border-color: var(--verde-principal);
+    color: #fff;
+}
+
+.ui-button.btn-success:hover {
+    background-color: var(--verde-secundario);
+    border-color: var(--verde-secundario);
+    color: #fff;
+}
+
+.ui-button.btn-outline-danger {
+    background-color: transparent;
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.ui-button.btn-outline-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
