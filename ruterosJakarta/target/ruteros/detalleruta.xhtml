@@ -1,0 +1,72 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="jakarta.faces.html"
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:f="jakarta.faces.core"
+    template="/WEB-INF/templates/ruteros-template.xhtml">
+
+    <ui:define name="title">Detalle de la Ruta</ui:define>
+
+    <ui:define name="content">
+
+        <f:metadata>
+            <f:viewParam name="nombreRuta" value="#{detallesRutaBean.nombreRuta}" />
+            <f:viewParam name="descripcionRuta" value="#{detallesRutaBean.descripcionRuta}" />
+            <f:viewParam name="origen" value="#{detallesRutaBean.origen}" />
+        </f:metadata>
+
+        <div class="container my-5">
+            
+            <div class="mb-4">
+                <h:link outcome="seccionrutas" value="← Volver a Rutas" styleClass="btn btn-outline-secondary btn-sm" />
+            </div>
+
+            <div class="row g-5">
+                
+                <div class="col-lg-5">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h2 class="card-title text-primary mb-3">
+                                <h:outputText value="#{detallesRutaBean.nombreRuta}" />
+                            </h2>
+                            <hr />
+                            <h5 class="text-muted mb-3">Descripción:</h5>
+                            <p class="card-text flex-grow-1">
+                                <h:outputText value="#{detallesRutaBean.descripcionRuta}" />
+                            </p>
+                            
+                            <div class="mt-4 p-3 bg-light rounded">
+                                <span class="fw-bold">Punto de origen (Filtro):</span> 
+                                <span class="badge bg-primary ms-2">
+                                    <h:outputText value="#{not empty detallesRutaBean.origen ? detallesRutaBean.origen : 'Alicante'}" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-dark text-white">
+                            <h5 class="mb-0">Cómo llegar (Ruta en Google Maps)</h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="ratio ratio-16x9 h-100" style="min-height: 400px;">
+                                <iframe 
+                                    src="https://www.google.com/maps?saddr=#{detallesRutaBean.origen}+Spain&amp;daddr=#{detallesRutaBean.nombreRuta}+Spain&amp;output=embed" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>
