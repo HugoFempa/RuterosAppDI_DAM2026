@@ -9,19 +9,19 @@ import java.util.List;
 
 @Named("eventosBean")
 @SessionScoped
-public class EventosBean implements Serializable {
+    public class EventosBean implements Serializable {
 
-    private List<Evento> listaEventos;
-    private Evento nuevoEvento;
+        private List<Evento> listaEventos;
+        private Evento nuevoEvento;
 
-    @PostConstruct
+@PostConstruct
     public void init() {
         listaEventos = new ArrayList<>();
         nuevoEvento = new Evento();
         nuevoEvento.setDificultad("Fácil");
         nuevoEvento.setPlazasMaximas(15);
 
-        // Datos ficticios precargados en memoria
+        // Datos inventados 
         listaEventos.add(new Evento(1, "Subida al Puig Campana", "Sábado 21 Nov · 08:00h", "Font del Molí (Finestrat)", "Difícil", 15, 11));
         listaEventos.add(new Evento(2, "Paseo costero Serra Gelada", "Domingo 22 Nov · 09:30h", "Faro de l'Albir", "Fácil", 25, 18));
         listaEventos.add(new Evento(3, "Circular por la Font Roja", "Sábado 28 Nov · 08:30h", "Santuario Font Roja (Alcoy)", "Moderada", 20, 14));
@@ -37,7 +37,7 @@ public class EventosBean implements Serializable {
             ev.setInscritos(ev.getInscritos() + 1);
         }
     }
-
+    //AÑADIR UN EVENTO
     public void agregarEvento() {
         if (nuevoEvento.getTitulo() != null && !nuevoEvento.getTitulo().trim().isEmpty()) {
             int siguienteId = listaEventos.size() + 1;
@@ -47,13 +47,11 @@ public class EventosBean implements Serializable {
                 nuevoEvento.getFecha(),
                 nuevoEvento.getPuntoEncuentro(),
                 nuevoEvento.getDificultad(),
-                nuevoEvento.getPlazasMaximas() > 0 ? nuevoEvento.getPlazasMaximas() : 15,
-                1 // El creador ya cuenta como primer inscrito
-            );
+                nuevoEvento.getPlazasMaximas() > 0 ? nuevoEvento.getPlazasMaximas() : 15, 1);
             creado.setApuntado(true);
-            listaEventos.add(0, creado); // Se añade al principio de la lista
+            listaEventos.add(0, creado); 
 
-            // Limpiamos el formulario para el siguiente
+            // Limpieza
             nuevoEvento = new Evento();
             nuevoEvento.setDificultad("Fácil");
             nuevoEvento.setPlazasMaximas(15);
