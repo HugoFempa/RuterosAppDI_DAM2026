@@ -1,37 +1,15 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html"
-      xmlns:f="jakarta.faces.core"
-      xmlns:pt="jakarta.faces.passthrough">
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="jakarta.faces.html"
+    xmlns:f="jakarta.faces.core"
+    xmlns:ui="jakarta.faces.facelets"
+    template="/WEB-INF/templates/ruteros-template.xhtml"
+    xmlns:p="primefaces">
 
-<h:head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Rutas</title>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <ui:define name="title">Seccion rutas</ui:define>
 
-    <!-- Switch button -->
-    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css"
-          rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
-
-    <!-- Fuentes de Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&amp;family=Isometra&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet" />
-
-    <!-- Tu CSS, siempre el último: src/main/webapp/resources/css/css-normal/specific_css.css -->
-    <h:outputStylesheet library="css" name="css-normal/specific_css.css" />
-</h:head>
-
-<h:body>
-
-    <header>
-        <h1>Esto es la cabecera!!!</h1>
-    </header>
+    <ui:define name="content">
 
     <!-- container de toda la página -->
     <div class="container-fluid">
@@ -40,166 +18,114 @@
             <div class="col">
                 <p>Elija ruta...</p>
             </div>
-
-            <!-- Interruptor de opciones -->
-            <div class="col d-flex justify-content-end">
-                <div class="d-flex">
-                    <span class="ms-4">Rutas circulares</span>
-                    <h:selectBooleanCheckbox id="circulares" value="true"
-                                             pt:data-toggle="switchbutton"
-                                             pt:data-size="xs" />
-                </div>
-            </div>
         </div>
     </div>
 
     <!-- FILTROS -->
-    <div class="container-fluid">
+    <div class="container-fluid mb-4">
         <h:form id="formFiltros">
-            <div class="col d-flex justify-content-start">
-                <div class="d-flex">
-                    <h:outputLabel for="desdeSelect" value="Desde" />
-                    <h:selectOneMenu id="desdeSelect" styleClass="filtro-select">
-                        <f:selectItem itemLabel="" itemValue="" />
-                        <f:selectItem itemLabel="Alicante" itemValue="alicante" />
-                        <f:selectItem itemLabel="Elche" itemValue="elche" />
-                        <f:selectItem itemLabel="Novelda" itemValue="novelda" />
-                        <f:selectItem itemLabel="San Gabriel" itemValue="san-gabriel" />
-                    </h:selectOneMenu>
+            <div class="d-flex justify-content-center align-items-center flex-wrap gap-4">
+
+                <div class="d-flex align-items-center gap-2">
+                    <p:outputLabel for="optionDesde" value="Desde"/>
+                    <p:selectOneMenu id="optionDesde" value="#{ruutasbean.ciudadFiltro}">
+                        <f:selectItem itemLabel="" itemValue=""/>
+                        <f:selectItem itemLabel="Alicante" itemValue="alc"/>
+                        <f:selectItem itemLabel="Elche" itemValue="elc"/>
+                        <f:selectItem itemLabel="Novelda" itemValue="nov"/>
+                        <f:selectItem itemLabel="San Gabriel" itemValue="san"/>
+                    </p:selectOneMenu>
                 </div>
 
-                <div class="d-flex">
-                    <h:outputLabel for="dificultadSelect" value="Dificultad" />
-                    <h:selectOneMenu id="dificultadSelect" styleClass="filtro-select">
-                        <f:selectItem itemLabel="" itemValue="" />
-                        <f:selectItem itemLabel="Fácil (2km)" itemValue="facil" />
-                        <f:selectItem itemLabel="Normal (5km)" itemValue="normal" />
-                        <f:selectItem itemLabel="Difícil (10km)" itemValue="dificil" />
-                        <f:selectItem itemLabel="Aventurero experto (20km)" itemValue="experto" />
-                    </h:selectOneMenu>
+                <div class="d-flex align-items-center gap-2">
+                    <p:outputLabel for="optionDificultad" value="Dificultad"/>
+                    <p:selectOneMenu id="optionDificultad" value="#{ruutasbean.dificultadFiltro}">
+                        <f:selectItem itemLabel="" itemValue=""/>
+                        <f:selectItem itemLabel="Fácil (2km)" itemValue="facil"/>
+                        <f:selectItem itemLabel="Normal (5km)" itemValue="normal"/>
+                        <f:selectItem itemLabel="Difícil (10km)" itemValue="dificil"/>
+                        <f:selectItem itemLabel="Aventurero experto (20km)" itemValue="experto"/>
+                    </p:selectOneMenu>
                 </div>
+
+                <div class="d-flex align-items-center gap-2">
+                    <span>Rutas circulares</span>
+                    <p:toggleSwitch value="#{ruutasbean.incluirCirculares}"/>
+                </div>
+
+                <p:commandButton value="Buscar" action="#{ruutasbean.buscar}" update=":panelRutas :panelRutasGrupales"/>
             </div>
         </h:form>
     </div>
 
     <!-- RUTAS -->
-    <div class="container-fluid rutas">
-        <div class="row justify-content-center">
+    <h:panelGroup layout="block" id="panelRutas" styleClass="container-fluid rutas">
+        <div class="row justify-content-center g-4 mb-4">
 
-            <!-- 1. TARJETA DE RUTA -->
-            <div class="col-md-3">
-                <div class="card h-100">
-                    <h:graphicImage library="imgs" name="viajefoto.webp" styleClass="card-img-top" alt="Ruta Monte Tosal" />
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Ruta Monte Tosal</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi repellendus
-                            ut quis commodi quas error.</p>
-                        <div class="card-buttons">
-                            <a href="#" class="btn btn-primary">Saber más...</a>
-                            <button type="button" class="btn btn-primary">Compartir</button>
+            <ui:repeat value="#{ruutasbean.rutasFiltradas}" var="ruta">
+                <div class="col-md-3">
+                    <div class="card h-100">
+                        <h:graphicImage library="#{ruta.imgs}" name="#{ruta.imagen}"
+                                        styleClass="card-img-top" alt="#{ruta.nombre}"/>
+                        <div class="card-body d-flex flex-column pb-4">
+                            <h5 class="card-title">#{ruta.nombre}</h5>
+                            <p class="card-text">#{ruta.descripcion}</p>
+                            <h:outputText value="Ruta circular" styleClass="badge bg-info text-dark mb-2 align-self-start"
+                                          rendered="#{ruta.circular}"/>
+                            <div class="card-buttons mt-auto">
+                                <a href="#" class="btn btn-primary">Info</a>
+                                <button type="button" class="btn btn-primary">Compartir</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </ui:repeat>
 
-            <!-- 2. TARJETA DE RUTA -->
-            <div class="col-md-3">
-                <div class="card h-100">
-                    <h:graphicImage library="imgs" name="monte_ruta_1.webp" styleClass="card-img-top" alt="Ruta Monte Negro" />
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Ruta Monte Negro</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi repellendus
-                            ut quis commodi quas error.</p>
-                        <div class="card-buttons">
-                            <a href="#" class="btn btn-primary">Saber más...</a>
-                            <button type="button" class="btn btn-primary">Compartir</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. TARJETA DE RUTA -->
-            <div class="col-md-3">
-                <div class="card h-100">
-                    <h:graphicImage library="imgs" name="monte_ruta_1.webp" styleClass="card-img-top" alt="Ruta Poraí" />
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Ruta Poraí</h5>
-                        <p class="card-text">RUTA CIRCULAR</p>
-                        <div class="card-buttons">
-                            <a href="#" class="btn btn-primary">Saber más...</a>
-                            <button type="button" class="btn btn-primary">Compartir</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h:panelGroup layout="block" styleClass="text-center w-100 py-4" rendered="#{empty ruutasbean.rutasFiltradas}">
+                <p>No se han encontrado rutas con los filtros seleccionados.</p>
+            </h:panelGroup>
 
         </div>
-    </div>
+    </h:panelGroup>
 
-    <hr />
+    <hr class="my-5" />
 
     <!-- RUTAS GRUPALES -->
     <div class="container-fluid grupal">
-        <h1 style="text-align: center;">¿Quieres conocer gente?</h1>
-        <h2 style="text-align: center;" class="txt_rutas_grupales">Rutas grupales para conocer gente</h2>
+        <h1 style="text-align: center;" class="mb-4">¿Quieres conocer gente?</h1>
+        <h2 style="text-align: center;" class="txt_rutas_grupales mb-5">Rutas grupales para conocer gente</h2>
 
-        <div class="row justify-content-center">
+        <h:panelGroup layout="block" id="panelRutasGrupales">
+            <div class="row justify-content-center g-4 mb-4">
 
-            <!-- 1. TARJETA DE RUTA -->
-            <div class="col-md-3">
-                <div class="card h-100">
-                    <h:graphicImage library="imgs" name="rutafaro.webp" styleClass="card-img-top" alt="El Faro de L'Albir" />
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">El Faro De L'Albir</h5>
-                        <p class="card-text">Ruta grupal</p>
-                        <div class="card-buttons">
-                            <a href="#" class="btn btn-primary">Saber más...</a>
-                            <button type="button" class="btn btn-primary">Compartir</button>
+                <ui:repeat value="#{ruutasbean.rutasGrupalesFiltradas}" var="ruta">
+                    <div class="col-md-3">
+                        <div class="card h-100">
+                            <h:graphicImage library="#{ruta.imgs}" name="#{ruta.imagen}"
+                                            styleClass="card-img-top" alt="#{ruta.nombre}"/>
+                            <div class="card-body d-flex flex-column pb-4">
+                                <h5 class="card-title">#{ruta.nombre}</h5>
+                                <p class="card-text">#{ruta.descripcion}</p>
+                                <h:outputText value="Ruta circular" styleClass="badge bg-info text-dark mb-2 align-self-start"
+                                              rendered="#{ruta.circular}"/>
+                                <div class="card-buttons mt-auto">
+                                    <a href="#" class="btn btn-primary">Info</a>
+                                    <button type="button" class="btn btn-primary">Compartir</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </ui:repeat>
 
-            <!-- 2. TARJETA DE RUTA -->
-            <div class="col-md-3">
-                <div class="card h-100">
-                    <h:graphicImage library="imgs" name="rutacova.webp" styleClass="card-img-top" alt="La Cova Tallada" />
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">La Cova Tallada</h5>
-                        <p class="card-text">Ruta grupal</p>
-                        <div class="card-buttons">
-                            <a href="#" class="btn btn-primary">Saber más...</a>
-                            <button type="button" class="btn btn-primary">Compartir</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <h:panelGroup layout="block" styleClass="text-center w-100 py-4" rendered="#{empty ruutasbean.rutasGrupalesFiltradas}">
+                    <p>No se han encontrado rutas grupales con los filtros seleccionados.</p>
+                </h:panelGroup>
 
-            <!-- 3. TARJETA DE RUTA -->
-            <div class="col-md-3">
-                <div class="card h-100">
-                    <h:graphicImage library="imgs" name="rutaforat.webp" styleClass="card-img-top" alt="Forat de Bèrnia" />
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Forat de Bèrnia</h5>
-                        <p class="card-text">Ruta grupal</p>
-                        <div class="card-buttons">
-                            <a href="#" class="btn btn-primary">Saber más...</a>
-                            <button type="button" class="btn btn-primary">Compartir</button>
-                        </div>
-                    </div>
-                </div>
             </div>
-
-        </div>
+        </h:panelGroup>
     </div>
 
-    <hr />
 
-    <footer>
-        <p>footer</p>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</h:body>
-
-</html>
+</ui:define>
+</ui:composition>

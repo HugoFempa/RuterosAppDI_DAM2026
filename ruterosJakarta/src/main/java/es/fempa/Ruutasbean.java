@@ -1,12 +1,12 @@
 package es.fempa;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.faces.view.ViewScoped;
-import jakarta.inject.Named;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import jakarta.annotation.PostConstruct;
+import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Named;
 
 /**
  * Bean de la sección de rutas. Contiene los datos MOCKEADOS (ficticios)
@@ -45,59 +45,59 @@ public class Ruutasbean implements Serializable {
         final String imgs = "ruterosJakarta/src/main/webapp/resources/imgs";
 
         // ---- Rutas normales ----
-        rutas.add(new Ruta(1L, "Ruta Monte Tosal",
+        rutas.add(new Ruta("1", "Ruta Monte Tosal",
                 "Ruta de dificultad media con vistas al Benacantil.",
                 imgs, "viajefoto.webp",
                 "alc", "normal", false, false));
 
-        rutas.add(new Ruta(2L, "Ruta Monte Negro",
+        rutas.add(new Ruta("2", "Ruta Monte Negro",
                 "Ascenso exigente entre pinares, recomendado para senderistas con experiencia.",
                 imgs, "monte_ruta_1.webp",
                 "elc", "dificil", false, false));
 
-        rutas.add(new Ruta(3L, "Ruta Poraí",
+        rutas.add(new Ruta("3", "Ruta Poraí",
                 "Recorrido circular: se parte y se vuelve al mismo punto de salida.",
                 imgs, "monte_ruta_1.webp",
                 "alc", "facil", true, false));
 
-        rutas.add(new Ruta(4L, "Ruta del Molinar",
+        rutas.add(new Ruta("4", "Ruta del Molinar",
                 "Paseo tranquilo junto al cauce, apto para toda la familia.",
                 imgs, "viajefoto.webp",
                 "nov", "normal", false, false));
 
-        rutas.add(new Ruta(5L, "Sierra de San Gabriel",
+        rutas.add(new Ruta("5", "Sierra de San Gabriel",
                 "Ruta de montaña de larga distancia, solo para expertos.",
                 imgs, "monte_ruta_1.webp",
                 "san", "experto", false, false));
 
-        rutas.add(new Ruta(6L, "Vuelta a la Albufereta",
+        rutas.add(new Ruta("6", "Vuelta a la Albufereta",
                 "Ruta circular de baja dificultad junto al mar.",
                 imgs, "rutafaro.webp",
                 "alc", "facil", true, false));
 
-        rutas.add(new Ruta(7L, "Ruta Clot de Galvany",
+        rutas.add(new Ruta("7", "Ruta Clot de Galvany",
                 "Recorrido llano por el parque natural, ideal para iniciarse.",
                 imgs, "rutacova.webp",
                 "elc", "facil", false, false));
 
-        rutas.add(new Ruta(8L, "Ruta del Vinalopó",
+        rutas.add(new Ruta("8", "Ruta del Vinalopó",
                 "Ruta circular de dificultad alta siguiendo el cauce del río.",
                 imgs, "rutaforat.webp",
                 "nov", "dificil", true, false));
 
         // ---- Rutas grupales ----
         // Ciudad/dificultad/circular inventadas (mock) para que entren en el mismo filtro.
-        rutas.add(new Ruta(9L, "El Faro De L'Albir",
+        rutas.add(new Ruta("9", "El Faro De L'Albir",
                 "Ruta grupal",
                 imgs, "rutafaro.webp",
                 "alc", "normal", false, true));
 
-        rutas.add(new Ruta(10L, "La Cova Tallada",
+        rutas.add(new Ruta("10", "La Cova Tallada",
                 "Ruta grupal",
                 imgs, "rutacova.webp",
                 "elc", "dificil", false, true));
 
-        rutas.add(new Ruta(11L, "Forat de Bèrnia",
+        rutas.add(new Ruta("11", "Forat de Bèrnia",
                 "Ruta grupal",
                 imgs, "rutaforat.webp",
                 "san", "experto", true, true));
