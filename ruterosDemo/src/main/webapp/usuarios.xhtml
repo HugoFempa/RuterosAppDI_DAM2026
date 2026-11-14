@@ -1,0 +1,30 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="jakarta.faces.html"
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:p="primefaces"
+    template="/WEB-INF/templates/template.xhtml">
+
+    <ui:define name="title">
+        Usuarios
+    </ui:define>
+
+    <ui:define name="content">
+
+        <h2>Usuarios</h2>
+
+        <p:panel header="Gestión de usuarios">
+
+            <p>
+                Aquí tendremos la gestión de usuarios.
+            </p>
+
+            <p:commandButton
+                value="Nuevo usuario"
+                icon="pi pi-plus"/>
+
+        </p:panel>
+
+    </ui:define>
+
+</ui:composition>

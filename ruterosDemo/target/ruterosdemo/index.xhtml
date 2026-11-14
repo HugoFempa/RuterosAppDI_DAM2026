@@ -1,0 +1,66 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="jakarta.faces.html"
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:f="jakarta.faces.core"
+    template="/WEB-INF/templates/ruteros-template.xhtml">
+
+    <ui:define name="title">RUTEROS · Inicio</ui:define>
+
+    <ui:define name="content">
+
+        <section class="hero mb-4">
+            <h1>Tu próximo camino no está en el mapa, está en tus pies.</h1>
+            <p class="lead">
+                Descubre rutas, guárdalas en favoritos y comparte tus propias aventuras.
+            </p>
+            <a href="rutas.xhtml" class="btn btn-light btn-lg me-2">Explorar rutas</a>
+            <a href="crearRuta.xhtml" class="btn btn-outline-light btn-lg">Crear una ruta</a>
+        </section>
+
+        <h2 class="mb-3">Rutas destacadas</h2>
+
+        <div class="row g-3">
+            <ui:repeat value="#{rutasBean.destacadas}" var="ruta">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card h-100">
+                        <h:graphicImage library="img" name="#{ruta.imagen}"
+                                        styleClass="card-img-top" alt="#{ruta.alt}"/>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">#{ruta.nombre}</h5>
+                            <p class="card-text small text-muted mb-2">
+                                #{ruta.ubicacion} · #{ruta.dificultad}
+                            </p>
+                            <p class="card-text">#{ruta.descripcion}</p>
+                            <h:link outcome="ruta" value="Ver ruta"
+                                    styleClass="btn btn-primary btn-sm mt-auto">
+                                <f:param name="id" value="#{ruta.id}"/>
+                            </h:link>
+                        </div>
+                    </div>
+                </div>
+            </ui:repeat>
+        </div>
+
+        <h2 class="text-center my-4">Consejos para tu próxima aventura</h2>
+
+        <div class="row g-4">
+            <ui:repeat value="#{rutasBean.consejos}" var="consejo">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">#{consejo.titulo}</h4>
+                            <ul>
+                                <ui:repeat value="#{consejo.items}" var="item">
+                                    <li>#{item}</li>
+                                </ui:repeat>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </ui:repeat>
+        </div>
+
+    </ui:define>
+
+</ui:composition>
