@@ -1,0 +1,117 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="jakarta.faces.html"
+    xmlns:f="jakarta.faces.core"
+    xmlns:ui="jakarta.faces.facelets"
+    template="/WEB-INF/templates/ruteros-template.xhtml">
+
+    <ui:define name="title">RUTEROS · Eventos y Quedadas</ui:define>
+
+    <ui:define name="content">
+
+        <div class="container my-4">
+            <div class="card p-4 p-md-5 bg-white">
+                
+                <!-- Cabecera con botón para abrir formulario -->
+                <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+                    <div>
+                        <h2 class="fw-bold text-success mb-1">Próximos Eventos y Quedadas</h2>
+                        <p class="text-secondary mb-0">
+                            Únete a las salidas grupales organizadas por la comunidad o propón tu propia ruta.
+                        </p>
+                    </div>
+                    <button class="btn btn-success fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#formNuevoEvento" aria-expanded="false" aria-controls="formNuevoEvento">
+                        + Proponer evento
+                    </button>
+                </div>
+
+                <!-- Formulario desplegable para crear un evento nuevo -->
+                <div class="collapse mb-4" id="formNuevoEvento">
+                    <div class="card card-body bg-light border-success">
+                        <h5 class="fw-bold text-success mb-3">Nueva quedada grupal</h5>
+                        <h:form id="formCrear">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Título de la salida *</label>
+                                    <h:inputText value="#{eventosBean.nuevoEvento.titulo}" styleClass="form-control" required="true" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Fecha y hora *</label>
+                                    <h:inputText value="#{eventosBean.nuevoEvento.fecha}" styleClass="form-control" required="true" />
+                                </div>
+                                <div class="col-md-5">
+                                    <label class="form-label fw-semibold">Punto de encuentro *</label>
+                                    <h:inputText value="#{eventosBean.nuevoEvento.puntoEncuentro}" styleClass="form-control" required="true" />
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Dificultad</label>
+                                    <h:selectOneMenu value="#{eventosBean.nuevoEvento.dificultad}" styleClass="form-select">
+                                        <f:selectItem itemValue="Fácil" itemLabel="Fácil" />
+                                        <f:selectItem itemValue="Moderada" itemLabel="Moderada" />
+                                        <f:selectItem itemValue="Difícil" itemLabel="Difícil" />
+                                    </h:selectOneMenu>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">Plazas máx.</label>
+                                    <h:inputText value="#{eventosBean.nuevoEvento.plazasMaximas}" styleClass="form-control" />
+                                </div>
+                                <div class="col-12 text-end">
+                                    <h:commandButton value="Publicar evento" action="#{eventosBean.agregarEvento}" styleClass="btn btn-success px-4">
+                                        <f:ajax execute="@form" render=":formListaEventos" />
+                                    </h:commandButton>
+                                </div>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+
+                <!-- Listado de tarjetas de eventos -->
+                <h:form id="formListaEventos">
+                    <div class="row g-4">
+                        <ui:repeat value="#{eventosBean.listaEventos}" var="ev">
+                            <div class="col-md-6">
+                                <div class="card h-100 shadow-sm border">
+                                    <div class="card-body d-flex flex-column justify-content-between">
+                                        <div>
+                                            <!-- Fecha y Dificultad -->
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <span class="badge bg-success">#{ev.fecha}</span>
+                                                <span class="badge #{ev.dificultad eq 'Fácil' ? 'bg-success-subtle text-success border border-success' : (ev.dificultad eq 'Moderada' ? 'bg-warning-subtle text-dark border border-warning' : 'bg-danger-subtle text-danger border border-danger')}">
+                                                    #{ev.dificultad}
+                                                </span>
+                                            </div>
+
+                                            <!-- Título y Punto de encuentro -->
+                                            <h5 class="card-title fw-bold text-dark mt-2">#{ev.titulo}</h5>
+                                            <p class="card-text text-secondary small mb-3">
+                                                <strong>Punto de encuentro:</strong> #{ev.puntoEncuentro}
+                                            </p>
+                                        </div>
+
+                                        <!-- Plazas y Botón de inscripción -->
+                                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                                            <span class="small fw-semibold #{ev.inscritos ge ev.plazasMaximas ? 'text-danger' : 'text-secondary'}">
+                                                Plazas: #{ev.inscritos} / #{ev.plazasMaximas}
+                                            </span>
+
+                                            <h:commandButton 
+                                                value="#{ev.apuntado ? 'Apuntado ✓' : (ev.inscritos ge ev.plazasMaximas ? 'Completo' : 'Apuntarme')}"
+                                                action="#{eventosBean.alternarInscripcion(ev)}"
+                                                disabled="#{!ev.apuntado and ev.inscritos ge ev.plazasMaximas}"
+                                                styleClass="btn btn-sm #{ev.apuntado ? 'btn-success' : (ev.inscritos ge ev.plazasMaximas ? 'btn-secondary' : 'btn-outline-success')}">
+                                                <f:ajax render="@form" />
+                                            </h:commandButton>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ui:repeat>
+                    </div>
+                </h:form>
+
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>
