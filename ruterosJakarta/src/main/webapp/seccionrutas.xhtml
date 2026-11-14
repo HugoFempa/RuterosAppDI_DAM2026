@@ -73,7 +73,11 @@
                             <h:outputText value="Ruta circular" styleClass="badge bg-info text-dark mb-2 align-self-start"
                                           rendered="#{ruta.circular}"/>
                             <div class="card-buttons mt-auto">
-                                <a href="#" class="btn btn-primary">Info</a>
+                                <h:link outcome="infoRuta" target="_blank" styleClass="btn btn-primary" value="Info">
+                                    <f:param name="nombre" value="#{ruta.nombre}"/>
+                                    <f:param name="descripcion" value="#{ruta.descripcion}"/>
+                                    <f:param name="origen" value="#{ruutasbean.ciudadFiltroLabel}"/>
+                                </h:link>
                                 <button type="button" class="btn btn-primary">Compartir</button>
                             </div>
                         </div>
@@ -109,7 +113,11 @@
                                 <h:outputText value="Ruta circular" styleClass="badge bg-info text-dark mb-2 align-self-start"
                                               rendered="#{ruta.circular}"/>
                                 <div class="card-buttons mt-auto">
-                                    <a href="#" class="btn btn-primary">Info</a>
+                                    <h:link outcome="infoRuta" target="_blank" styleClass="btn btn-primary" value="Info">
+                                        <f:param name="nombre" value="#{ruta.nombre}"/>
+                                        <f:param name="descripcion" value="#{ruta.descripcion}"/>
+                                        <f:param name="origen" value="#{ruutasbean.ciudadFiltroLabel}"/>
+                                    </h:link>
                                     <button type="button" class="btn btn-primary">Compartir</button>
                                 </div>
                             </div>
@@ -124,7 +132,6 @@
             </div>
         </h:panelGroup>
     </div>
-
 
 
 </ui:define>

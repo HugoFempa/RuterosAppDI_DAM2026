@@ -148,6 +148,24 @@ public class Ruutasbean implements Serializable {
         return valor == null || valor.isEmpty();
     }
 
+    /**
+     * Nombre legible de la ciudad seleccionada en el filtro "Desde", para
+     * usarlo como punto de origen en el enlace de Google Maps del botón "Info".
+     * Si no se ha seleccionado ninguna, se usa Alicante por defecto.
+     */
+    public String getCiudadFiltroLabel() {
+        if (esVacio(ciudadFiltro)) {
+            return "Alicante";
+        }
+        switch (ciudadFiltro) {
+            case "alc": return "Alicante";
+            case "elc": return "Elche";
+            case "nov": return "Novelda";
+            case "san": return "San Gabriel";
+            default: return "Alicante";
+        }
+    }
+
     // ---------------- Getters / setters ----------------
 
     public List<Ruta> getRutasFiltradas() {

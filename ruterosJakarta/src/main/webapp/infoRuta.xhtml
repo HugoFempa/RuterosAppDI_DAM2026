@@ -1,0 +1,21 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="jakarta.faces.html"
+    xmlns:ui="jakarta.faces.facelets"
+    template="/WEB-INF/templates/ruteros-template.xhtml">
+
+    <ui:define name="title">RUTEROS · #{param.nombre}</ui:define>
+
+    <ui:define name="content">
+
+        <h1 class="h3 mb-3">#{param.nombre}</h1>
+        <p class="mb-4">#{param.descripcion}</p>
+
+        <a target="_blank" class="btn btn-primary"
+           href="https://www.google.com/maps/dir/?api=1&amp;origin=#{param.origen}&amp;destination=#{param.nombre}">
+            Ver ruta en Google Maps (desde #{param.origen})
+        </a>
+
+    </ui:define>
+
+</ui:composition>
