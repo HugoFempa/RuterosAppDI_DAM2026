@@ -70,3 +70,24 @@ body .btn-primary:active{
     border-color: var(--verde-secundario) !important;
     color: #ffffff !important;
 }
+
+/* Botones e interruptores de PrimeFaces con el verde de marca */
+html body .ui-button.ui-widget,
+html body button.ui-button.ui-state-default,
+html body .ui-toggleswitch.ui-toggleswitch-checked .ui-toggleswitch-slider {
+    background: var(--verde-principal) !important;
+    background-color: var(--verde-principal) !important;
+    border-color: var(--verde-principal) !important;
+    color: #ffffff !important;
+}
+
+html body .ui-button.ui-widget:hover,
+html body .ui-button.ui-widget:focus,
+html body button.ui-button.ui-state-hover,
+html body button.ui-button.ui-state-focus,
+html body .ui-toggleswitch.ui-toggleswitch-checked:hover .ui-toggleswitch-slider {
+    background: var(--verde-secundario) !important;
+    background-color: var(--verde-secundario) !important;
+    border-color: var(--verde-secundario) !important;
+    color: #ffffff !important;
+}
