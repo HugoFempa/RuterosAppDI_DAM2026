@@ -42,7 +42,7 @@ public class Ruutasbean implements Serializable {
 
     private void cargarDatosMock() {
         rutas = new ArrayList<>();
-        final String imgs = "ruterosJakarta/src/main/webapp/resources/imgs";
+        final String imgs = "imgs";
 
         // ---- Rutas normales ----
         rutas.add(new Ruta("1", "Ruta Monte Tosal",
@@ -52,12 +52,12 @@ public class Ruutasbean implements Serializable {
 
         rutas.add(new Ruta("2", "Ruta Monte Negro",
                 "Ascenso exigente entre pinares, recomendado para senderistas con experiencia.",
-                imgs, "monte_ruta_1.webp",
+                imgs, "rutaforat.webp",
                 "elc", "dificil", false, false));
 
         rutas.add(new Ruta("3", "Ruta Poraí",
                 "Recorrido circular: se parte y se vuelve al mismo punto de salida.",
-                imgs, "monte_ruta_1.webp",
+                imgs, "viajefoto.webp",
                 "alc", "facil", true, false));
 
         rutas.add(new Ruta("4", "Ruta del Molinar",
@@ -67,7 +67,7 @@ public class Ruutasbean implements Serializable {
 
         rutas.add(new Ruta("5", "Sierra de San Gabriel",
                 "Ruta de montaña de larga distancia, solo para expertos.",
-                imgs, "monte_ruta_1.webp",
+                imgs, "rutacova.webp",
                 "san", "experto", false, false));
 
         rutas.add(new Ruta("6", "Vuelta a la Albufereta",
