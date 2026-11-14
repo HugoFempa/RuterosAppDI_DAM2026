@@ -55,3 +55,15 @@ body .card-img-top{
     height:180px;
     object-fit:cover;
 }
+
+/* Botones "primarios" (Info, Ver ruta en Google Maps, etc.) con el verde de marca */
+.btn-primary{
+    background-color: var(--verde-principal);
+    border-color: var(--verde-principal);
+}
+
+.btn-primary:hover,
+.btn-primary:focus{
+    background-color: var(--verde-secundario);
+    border-color: var(--verde-secundario);
+}

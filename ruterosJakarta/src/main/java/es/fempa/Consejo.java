@@ -19,7 +19,6 @@ public class Consejo implements Serializable {
     public String getTitulo() {
         return titulo;
     }
-
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
@@ -27,7 +26,6 @@ public class Consejo implements Serializable {
     public List<String> getItems() {
         return items;
     }
-
     public void setItems(List<String> items) {
         this.items = items;
     }
