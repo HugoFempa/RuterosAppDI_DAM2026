@@ -18,8 +18,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
 
-    <!-- Hoja de estilos del equipo -->
-    <h:outputStylesheet library="css" name="ruteros.css"/>
+    <!-- Hoja de estilos del equipo (siempre debajo de Bootstrap) -->
+    <link rel="stylesheet" href="#{request.contextPath}/resources/css/ruteros.css"/>
 </h:head>
 
 <h:body>
@@ -102,7 +102,7 @@
                 <ul class="list-unstyled">
                     <li><a href="seccionrutas.xhtml" class="text-decoration-none text-dark">Explorar rutas</a></li>
                     <li><a href="#" class="text-decoration-none text-dark">Comunidad</a></li>
-                    <li><a href="#" class="text-decoration-none text-dark">Eventos</a></li>
+                    <li><a href="eventos.xhtml" class="text-decoration-none text-dark">Eventos</a></li>
                 </ul>
             </div>
 

@@ -57,13 +57,16 @@ body .card-img-top{
 }
 
 /* Botones "primarios" (Info, Ver ruta en Google Maps, etc.) con el verde de marca */
-.btn-primary{
-    background-color: var(--verde-principal);
-    border-color: var(--verde-principal);
+body .btn-primary{
+    background-color: var(--verde-principal) !important;
+    border-color: var(--verde-principal) !important;
+    color: #ffffff !important;
 }
 
-.btn-primary:hover,
-.btn-primary:focus{
-    background-color: var(--verde-secundario);
-    border-color: var(--verde-secundario);
+body .btn-primary:hover,
+body .btn-primary:focus,
+body .btn-primary:active{
+    background-color: var(--verde-secundario) !important;
+    border-color: var(--verde-secundario) !important;
+    color: #ffffff !important;
 }
