@@ -8,13 +8,46 @@
 
     <ui:define name="content">
 
-        <h1 class="h3 mb-3">#{param.nombre}</h1>
-        <p class="mb-4">#{param.descripcion}</p>
+        <div class="container">
+        <div class="card shadow-sm">
+            <div class="row g-0">
 
-        <a target="_blank" class="btn btn-primary"
-           href="https://www.google.com/maps/dir/?api=1&amp;origin=#{param.origen}&amp;destination=#{param.nombre}">
-            Ver ruta en Google Maps (desde #{param.origen})
-        </a>
+                <!-- Columna izquierda: texto -->
+                <div class="col-md-6 p-4 d-flex flex-column">
+                    <h1 class="h3 mb-3">#{param.nombre}</h1>
+                    <p class="mb-4">#{param.descripcion}</p>
+
+                    <h2 class="h6 text-uppercase text-muted mb-2">Qué llevar</h2>
+                    <ul class="mb-4">
+                        <li>Agua suficiente (mínimo 1,5 L por persona)</li>
+                        <li>Calzado de montaña con buen agarre</li>
+                        <li>Gorra o sombrero y protector solar</li>
+                        <li>Mochila pequeña con snacks o barritas energéticas</li>
+                        <li>Chaqueta cortavientos, por si cambia el tiempo</li>
+                        <li>Móvil cargado y, si puede ser, batería externa</li>
+                    </ul>
+
+                    <a target="_blank" class="btn btn-primary mt-auto align-self-start"
+                       href="https://www.google.com/maps/dir/?api=1&amp;origin=#{param.origen}&amp;destination=#{param.nombre}">
+                        Abrir en Google Maps
+                    </a>
+                </div>
+
+                <!-- Columna derecha: mapa embebido -->
+                <div class="col-md-6">
+                    <div class="ratio ratio-4x3 h-100">
+                        <iframe
+                            src="https://maps.google.com/maps?saddr=#{param.origen}&amp;daddr=#{param.nombre}&amp;output=embed"
+                            style="border:0; min-height:350px;"
+                            allowfullscreen="allowfullscreen"
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
 
     </ui:define>
 

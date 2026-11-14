@@ -11,17 +11,8 @@
 
     <ui:define name="content">
 
-    <style>
-        body .ui-toggleswitch.ui-toggleswitch-checked .ui-toggleswitch-slider {
-            background: #2E7D32 !important;
-        }
-        body .ui-toggleswitch.ui-toggleswitch-checked:hover .ui-toggleswitch-slider {
-            background: #4CAF50 !important;
-        }
-    </style>
-
     <!-- container de toda la página -->
-    <div class="container-fluid">
+    <div class="container">
         <h1>Rutas</h1>
         <div class="row">
             <div class="col">
@@ -31,7 +22,7 @@
     </div>
 
     <!-- FILTROS -->
-    <div class="container-fluid mb-4">
+    <div class="container mb-4">
         <h:form id="formFiltros">
             <div class="d-flex justify-content-center align-items-center flex-wrap gap-4">
 
@@ -62,14 +53,13 @@
                     <p:toggleSwitch value="#{ruutasbean.incluirCirculares}"/>
                 </div>
 
-                <p:commandButton value="Buscar" action="#{ruutasbean.buscar}" update=":panelRutas :panelRutasGrupales"
-                                 style="background: #2E7D32; border-color: #2E7D32; color: #ffffff;"/>
+                <p:commandButton value="Buscar" action="#{ruutasbean.buscar}" update=":panelRutas :panelRutasGrupales"/>
             </div>
         </h:form>
     </div>
 
     <!-- RUTAS -->
-    <h:panelGroup layout="block" id="panelRutas" styleClass="container-fluid rutas">
+    <h:panelGroup layout="block" id="panelRutas" styleClass="container rutas">
         <div class="row justify-content-center g-4 mb-4">
 
             <ui:repeat value="#{ruutasbean.rutasFiltradas}" var="ruta">
@@ -105,7 +95,7 @@
     <hr class="my-5" />
 
     <!-- RUTAS GRUPALES -->
-    <div class="container-fluid grupal">
+    <div class="container grupal">
         <h1 style="text-align: center;" class="mb-4">¿Quieres conocer gente?</h1>
         <h2 style="text-align: center;" class="txt_rutas_grupales mb-5">Rutas grupales para conocer gente</h2>
 
@@ -143,5 +133,6 @@
         </h:panelGroup>
     </div>
 
-    </ui:define>
+
+</ui:define>
 </ui:composition>
